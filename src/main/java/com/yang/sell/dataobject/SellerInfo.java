@@ -15,6 +15,4 @@ public class SellerInfo {
     private String username;
 
     private String openid;
-
-    private int anInt;
 }
