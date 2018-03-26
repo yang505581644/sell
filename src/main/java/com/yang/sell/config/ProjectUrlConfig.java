@@ -24,4 +24,9 @@ public class ProjectUrlConfig {
      * 系统
      * */
     public String sell;
+
+    /**
+     * 公众号
+     * */
+    public String otherWechatOpenAuthorize;
 }
