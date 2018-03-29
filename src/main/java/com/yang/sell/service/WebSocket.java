@@ -3,10 +3,7 @@ package com.yang.sell.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.websocket.OnClose;
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
+import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -18,6 +15,7 @@ public class WebSocket {
 
     private Session session;
 
+    //concurrent包的线程安全set，用来存放每个客户端对应的MyWebSocket对象
     private static CopyOnWriteArraySet<WebSocket> webSockets = new CopyOnWriteArraySet<>();
 
     @OnOpen
@@ -47,5 +45,10 @@ public class WebSocket {
                 e.printStackTrace();
             }
         }
+    }
+
+    @OnError
+    public void onError(Session session,Throwable throwable) {
+        throwable.printStackTrace();
     }
 }

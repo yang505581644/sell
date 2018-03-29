@@ -1,7 +1,6 @@
 package com.yang.sell.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.yang.sell.dataobject.OrderDetail;
 import com.yang.sell.enums.OrderStatusEnum;
@@ -11,7 +10,6 @@ import com.yang.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

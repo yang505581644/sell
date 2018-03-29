@@ -95,8 +95,7 @@ public class OrderServiceImpl implements OrderService{
 
         productInfoService.decreaseStock(cartDTOList);
 
-        //发送websocket消息
-        webSocket.sendMessage(orderDTO.getOrderId());
+
 
         return orderDTO;
     }
@@ -207,6 +206,10 @@ public class OrderServiceImpl implements OrderService{
             log.error("【订单支付成功】更新失败，orderMaster={}",orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+
+        //发送websocket消息
+        webSocket.sendMessage(orderDTO.getOrderId());
+
         return orderDTO;
     }
 

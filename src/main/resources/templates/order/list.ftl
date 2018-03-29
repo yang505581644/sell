@@ -96,7 +96,9 @@
         </div>
     </div>
 
-    播放音乐
+
+
+    <#--播放音乐-->
     <audio id="notice" loop="loop">
         <source src="http://yjl.natapp1.cc/mp3/timian.mp3" type="audio/mpeg" />
     </audio>
