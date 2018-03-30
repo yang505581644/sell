@@ -10,6 +10,8 @@ import com.yang.sell.service.ProductInfoService;
 import com.yang.sell.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +25,7 @@ import java.util.stream.Collectors;
  * */
 @RestController
 @RequestMapping("/buyer/product")
+@CacheConfig(cacheNames = "product")
 public class BuyerProductController {
 
     @Autowired
@@ -32,6 +35,7 @@ public class BuyerProductController {
     private ProductCategoryService categoryService;
 
     @GetMapping("/list")
+    @Cacheable(/**cacheNames = "product",*/key = "123")
     public ResultVO list() {
 
         //1.查询所有的上架商品
