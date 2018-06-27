@@ -3,6 +3,8 @@ package com.yang.sell.form;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Size;
+
 @Data
 public class OrderForm {
 
